@@ -99,8 +99,8 @@ EOF
         if ! grep -rqE '^deb http://ppa.launchpad.net/yubico/stable/ubuntu' /etc/apt/sources.list.d/*.list; then
             sudo apt-add-repository ppa:yubico/stable
         fi
-        ;;
         TOUCH_DETECTOR="go"
+        ;;
     arch)
         PKG_MANAGER="pacman"
         PKG_MANAGER_ENV="sudo"
