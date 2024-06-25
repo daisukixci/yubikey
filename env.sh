@@ -99,6 +99,7 @@ EOF
         if ! grep -rqE '^deb http://ppa.launchpad.net/yubico/stable/ubuntu' /etc/apt/sources.list.d/*.list; then
             sudo apt-add-repository ppa:yubico/stable
         fi
+        TOUCH_DETECTOR="go"
         ;;
     arch)
         PKG_MANAGER="pacman"
@@ -138,6 +139,7 @@ EOF
         NOTIFICATION_SCRIPT_PATH="${USER_BIN_DIR}/yubinotif"
         # shellcheck disable=SC2034
         SCDAEMON_CONF=""
+        TOUCH_DETECTOR="pacman"
         ;;
     *)
         echo "Sorry, your OS is not supported"
@@ -164,6 +166,7 @@ export PINENTRY_SETUP
 export PINENTRY
 export NOTIFICATION_SCRIPT_PATH
 export USER_BIN_DIR
+export TOUCH_DETECTOR
 
 # Colors galore.
 BOLD=$(tput bold)
